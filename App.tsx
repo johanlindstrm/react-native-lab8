@@ -62,9 +62,8 @@ interface DetailScreenItem {
 const ListScreen = ({navigation}: ListProps) => {
 
   const fetchList: () => ListItem[] = () => {
-    let url: string = "https://fakestoreapi.com/products"
     let dataResults: ListItem[] = [];
-    fetch(url)
+    fetch("https://fakestoreapi.com/products")
     .then((response) => response.json())
     .then((json) => {
       json.forEach((item: any) => {
@@ -115,8 +114,7 @@ const DetailScreen = ({route}: DetailProps) => {
 
   const fetchDetails: () => DetailScreenItem | null = () => {
 
-    let url: string = `https://fakestoreapi.com/products/${route.params.itemId}`
-    fetch(url)
+    fetch(`https://fakestoreapi.com/products/${route.params.itemId}`)
     .then((response) => response.json())
     .then((json) => {
 
